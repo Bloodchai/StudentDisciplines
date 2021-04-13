@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+  <header class="bg-primary text-white">
+      <h1 class="text-center">Баллы группы {{ group }}</h1>
+  </header>
+<table class="table">
+    <thead>
+    <tr class="first-table-row">
+        <th scope="col">Студент</th>
+        <th scope="col">Предмет</th>
+        <th scope="col">Оценка</th>
+    </tr>
+    </thead>
+  <tbody>
+    {% for d in disciplines %}
+    <tr>
+        <td> {{ d.student }} </td>
+        <td> {{ d.discipline }} </td>
+        <td> {{ d.mark }} </td>
+
+    </tr>
+    {% endfor %}
+    <tr class="bg-primary text-white">
+        {% for m in mark_avg %}
+        <td> Средний балл </td>
+        <td></td>
+        <td> {{ m }} </td>
+    {% endfor %}
+    </tr>
+  </tbody>
+</table>
+{% endblock content %}
